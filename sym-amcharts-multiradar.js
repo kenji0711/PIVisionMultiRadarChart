@@ -34,7 +34,7 @@
 			return {
 				DataShape: 'Table',
 				Height: 300,
-				Width: 600,
+				Width: 400,
 				minimumYValue: 0,
 				maximumYValue: 100,
 				useCustomYAxisRange: false,
@@ -74,11 +74,10 @@
         symbolContainerDiv.id = newUniqueIDString;
 		// Create a variable to hold the custom visualization object
 		var customVisualizationObject = false;
-		// Create a variable to hold the combined data array and itemArray, itemnumber
+		// Create a variable to hold the combined data array and itemArray
 		// itemArray keeps label information which is meta data but need to 
 		var dataArray = [];
 		var itemArray = [];
-		var itemnumber;
 		var showlabelsetting;
         
 		// Create variables to hold the old axis specifications
@@ -103,15 +102,12 @@
 					};
 					// Add this object to the data array
 					dataArray.push(newDataObject);
+
 				}
-				
+				showlabelsetting = scope.config.ShowLabel;
 				// Create the custom visualization
-				if (!customVisualizationObject || itemnumber < data["Rows"].length) {
-					itemnumber = data["Rows"].length;
-					showlabelsetting = scope.config.ShowLabel;
-					MakeChart();
-					ChangeFunction();
-				}
+				MakeChart();
+				ChangeFunction();
 			}
 		}
 
